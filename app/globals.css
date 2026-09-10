@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-orbitron);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+ * Brand ramp — https://coolors.co/palette/7400b8-6930c3-5e60ce-5390d9-4ea8de-
+ * 48bfe3-56cfe1-64dfdf-72efdd-80ffdb. Fixed, mode-independent — these are the
+ * raw neon swatches; semantic tokens below (--primary, --ring, etc.) draw
+ * from them per mode. Mirrored in TypeScript as `BRAND` in lib/palette.ts.
+ */
+:root {
+  --brand-1: #7400b8;
+  --brand-2: #6930c3;
+  --brand-3: #5e60ce;
+  --brand-4: #5390d9;
+  --brand-5: #4ea8de;
+  --brand-6: #48bfe3;
+  --brand-7: #56cfe1;
+  --brand-8: #64dfdf;
+  --brand-9: #72efdd;
+  --brand-10: #80ffdb;
+}
+
+:root {
+  --background: #f4f2fb;
+  --foreground: #150a29;
+  --card: #ffffff;
+  --card-foreground: #150a29;
+  --popover: #ffffff;
+  --popover-foreground: #150a29;
+  --primary: #6930c3;
+  --primary-foreground: #faf7ff;
+  --secondary: #ece7f9;
+  --secondary-foreground: #150a29;
+  --muted: #ece7f9;
+  --muted-foreground: #6b628a;
+  --accent: #e3ddf7;
+  --accent-foreground: #150a29;
+  --destructive: #c0362c;
+  --destructive-foreground: #fffaf0;
+  --border: rgba(105, 48, 195, 0.16);
+  --input: rgba(105, 48, 195, 0.22);
+  --ring: #6930c3;
+  --chart-1: #2a78d6;
+  --chart-2: #eb6834;
+  --chart-3: #1baf7a;
+  --chart-4: #eda100;
+  --chart-5: #e87ba4;
+  --radius: 0.625rem;
+  --sidebar: #faf8ff;
+  --sidebar-foreground: #150a29;
+  --sidebar-primary: #6930c3;
+  --sidebar-primary-foreground: #faf7ff;
+  --sidebar-accent: #ece7f9;
+  --sidebar-accent-foreground: #150a29;
+  --sidebar-border: rgba(105, 48, 195, 0.16);
+  --sidebar-ring: #6930c3;
+}
+
+.dark {
+  --background: #0a0612;
+  --foreground: #eef0ff;
+  --card: #130a20;
+  --card-foreground: #eef0ff;
+  --popover: #130a20;
+  --popover-foreground: #eef0ff;
+  --primary: #56cfe1;
+  --primary-foreground: #071019;
+  --secondary: #1d1030;
+  --secondary-foreground: #eef0ff;
+  --muted: #170c26;
+  --muted-foreground: #a99fc9;
+  --accent: #231433;
+  --accent-foreground: #eef0ff;
+  --destructive: #ff4d6d;
+  --destructive-foreground: #1a0508;
+  --border: rgba(94, 96, 206, 0.32);
+  --input: rgba(86, 207, 225, 0.28);
+  --ring: #56cfe1;
+  --chart-1: #3987e5;
+  --chart-2: #d95926;
+  --chart-3: #199e70;
+  --chart-4: #c98500;
+  --chart-5: #d55181;
+  --sidebar: #0d0716;
+  --sidebar-foreground: #eef0ff;
+  --sidebar-primary: #56cfe1;
+  --sidebar-primary-foreground: #071019;
+  --sidebar-accent: #1d1030;
+  --sidebar-accent-foreground: #eef0ff;
+  --sidebar-border: rgba(94, 96, 206, 0.32);
+  --sidebar-ring: #56cfe1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  /* A film-strip sprocket motif used as a hairline accent under the hero. */
+  .film-strip {
+    height: 10px;
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--border) 0px,
+      var(--border) 6px,
+      transparent 6px,
+      transparent 16px
+    );
+  }
+
+  /* Two-tone neon glow — violet under, cyan over — the brand ramp's two ends. */
+  .marquee-glow {
+    text-shadow:
+      0 0 18px color-mix(in oklab, var(--brand-7) 65%, transparent),
+      0 0 52px color-mix(in oklab, var(--brand-2) 55%, transparent);
+  }
+
+  /* Faint cyan/violet grid, cheap texture for the cyberpunk backdrop. Kept
+     under 3% opacity so it never competes with foreground content. */
+  .cyber-grid {
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--brand-7) 14%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--brand-2) 14%, transparent) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  /* Shared neon edge-glow for interactive surfaces (buttons, active nav). */
+  .neon-ring {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
+      0 0 24px color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+
+  /*
+   * Foil card — the crate-opening winner, tilted and lit like a CS:GO skin
+   * preview / holo trading card. --rx/--ry/--mx/--my/--op are written by
+   * FoilCard's mousemove handler (ref-driven, no React re-render); --rarity
+   * is set inline per pull from lib/rarity.ts.
+   */
+  .foil-card {
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    --op: 0;
+    --base-scale: 1;
+    perspective: 900px;
+  }
+
+  .foil-card-inner {
+    position: relative;
+    transform: scale(var(--base-scale)) rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+    border-radius: var(--radius-lg);
+    box-shadow:
+      0 0 0 3px var(--rarity),
+      0 0 40px color-mix(in oklab, var(--rarity) 65%, transparent),
+      0 24px 48px -20px rgba(0, 0, 0, 0.65);
+  }
+
+  /* Extra scale bump only while actually hovering, layered on top of
+     --base-scale — keeps the card at rest from sitting on a permanent
+     always-different-from-1 3D compositing layer when --base-scale is 1. */
+  .foil-card:hover .foil-card-inner {
+    transform: scale(var(--base-scale)) rotateX(var(--rx)) rotateY(var(--ry))
+      scale3d(1.04, 1.04, 1.04);
+    transition: transform 60ms linear;
+  }
+
+  /* Rainbow holo sheen sweeping under the cursor — color-dodge is what
+     sells the "foil" read against the dark poster art underneath. */
+  .foil-sheen {
+    background: linear-gradient(
+      115deg,
+      transparent 20%,
+      color-mix(in oklab, var(--brand-7) 60%, transparent) 36%,
+      color-mix(in oklab, var(--brand-2) 60%, transparent) 45%,
+      color-mix(in oklab, var(--brand-9) 60%, transparent) 54%,
+      transparent 70%
+    );
+    background-size: 220% 220%;
+    background-position: var(--mx) var(--my);
+    mix-blend-mode: color-dodge;
+    opacity: var(--op);
+    transition: opacity 300ms ease-out;
+  }
+
+  /* Soft specular highlight following the cursor. */
+  .foil-glare {
+    background: radial-gradient(
+      circle at var(--mx) var(--my),
+      rgba(255, 255, 255, 0.5),
+      transparent 45%
+    );
+    mix-blend-mode: overlay;
+    opacity: var(--op);
+    transition: opacity 300ms ease-out;
+  }
+}
